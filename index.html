@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <title>PintaMas</title>
+    <link rel="stylesheet" href="estilos.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+</head>
+
+<body>
+    <main>
+
+        <div id="portada">
+            <h1>Portafolio Pinta Mas</h1>
+            <img src="imagenes/Principal.jpg">
+            <ul>
+                <li><a href="#SobreMi">Sobre Mi</a></li>
+                <li><a href="#misTrabajos">Mis Trabajos</a></li>
+                <li><a href="#Que Ofrezco">Servicios</a></li>
+                <li><a href="#Contacto">Contacto</a></li>
+            </ul>
+        </div>
+        <hr>
+        <div id="SobreMi">
+            <h2>Quien soy</h2>
+            <p>Mi nombre es Alcides, soy cucuteño, nacido en el corazón de Norte de Santander,
+                Colombia. Desde temprana edad descubrí mi pasión por el arte, la anatomía y el alma humana.
+                Mi vida ha sido un puente entre dos mundos que se tocan con delicadeza: la medicina y el arte.
+                Soy médico de profesión y artista por vocación. Mi especialidad es el retrato,
+                y trabajo con una amplia variedad de técnicas, especialmente acrílico sobre lienzo,
+                carboncillo, y óleo. Cada trazo en mis obras busca capturar la esencia de la persona retratada,
+                más allá del parecido físico. Pinto historias,
+                emociones, silencios, y la memoria viva del rostro humano.
+                He dedicado mi vida a estudiar, perfeccionar y servir, llevando mi arte desde los rincones más íntimos
+                de un hogar hasta espacios públicos donde el alma encuentra refugio en los colores.</p>
+            <img src="imagenes/fotoPerfil.jpg" alt="Foto de Perfil">
+        </div>
+        <hr>
+        <div id="Que Ofrezco">
+            <h2>Que Ofrezco</h2>
+            <ul>
+                <li>Retratos personalizados (realistas, estilizados o conceptuales)</li>
+                <li>Restauración artística de fotografías antiguas</li>
+                <li>Pintura por encargo (familiares, mascotas, paisajes, homenajes)</li>
+                <li>Asesorías artísticas para nuevos pintores y coleccionistas</li>
+            </ul>
+            <h3>Tecnicas que Utilizo</h3>
+            <ul>
+                <li>✨ <strong>Acrílico sobre lienzo:</strong> Mi técnica principal. Me permite jugar con capas, texturas
+                    y contrastes para crear retratos vibrantes y llenos de vida.</li>
+                <li>✍️ <strong>Carboncillo:</strong> Ideal para retratos expresivos en blanco y negro, donde la sombra y
+                    la luz construyen atmósferas íntimas y profundas.</li>
+                <li>🎨 <strong>Óleo:</strong> Lo utilizo cuando busco una riqueza cromática más intensa, profundidad
+                    visual y un acabado atemporal.</li>
+                <li>🖼️ <strong>Restauración artística:</strong> Transformo fotografías antiguas en obras únicas,
+                    devolviéndoles vida y color desde una mirada artística y emocional.</li>
+                <li>🧠 <strong>Dibujo anatómico:</strong> Gracias a mi formación médica, tengo un entendimiento profundo
+                    del cuerpo humano, lo que me permite dibujar con precisión, naturalidad y respeto por la forma.</li>
+            </ul>
+
+        </div>
+        <hr>
+        <div id="misTrabajos">
+            <h2>Mis Trabajos</h2>
+            <div class="carousel-container">
+                <button class="prev" onclick="moverCarrusel(-1)">❮</button>
+
+                <div class="carousel">
+                    <img src="imagenes/retrato4.jpg" alt="Retrato 1">
+                    <img src="imagenes/retrato2.jpg" alt="Retrato 2">
+                    <img src="imagenes/retrato3.jpg" alt="Retrato 3">
+                    <img src="imagenes/imagen1.jpg" alt="Imagen 1">
+                    <img src="imagenes/Imagen2.jpg" alt="Imagen 2">
+                    <img src="imagenes/Imagen3.jpg" alt="Imagen 3">
+                </div>
+
+                <button class="next" onclick="moverCarrusel(1)">❯</button>
+            </div>
+        </div>
+        <hr>
+        <div id="Contacto">
+            <h2>Contactame</h2>
+            <ul>
+                <li>Hablame al Whatsapp +57 317 7046601</li>
+                <li>ayy020252s@gmail.com</li>
+            </ul>
+
+        </div>
+
+
+    </main>
+    <script>
+        let index = 0;
+
+        function moverCarrusel(direccion) {
+            const carrusel = document.querySelector('.carousel');
+            const totalImagenes = carrusel.children.length;
+            index += direccion;
+
+            if (index < 0) index = totalImagenes - 1;
+            if (index >= totalImagenes) index = 0;
+
+            carrusel.style.transform = `translateX(-${index * 100}%)`;
+        }
+    </script>
+
+</body>
+
+</html>
