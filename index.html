@@ -2,106 +2,254 @@
 <html lang="es">
 
 <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <title>PintaMas</title>
-    <link rel="stylesheet" href="estilos.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+
+    <link rel="stylesheet" href="css/estilos.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" />
 </head>
 
 <body>
     <main>
+        <header id="portada">
+            <h1>Portafolio Pinta Mas</h1>
 
-        <div id="portada">
-            <h1>Portafolio Pinta Más</h1>
-            <img src="imagenes/Principal.jpg" alt="Imagen principal del portafolio">
-            <ul>
-                <li><a href="#SobreMi">Sobre Mí</a></li>
-                <li><a href="#misTrabajos">Mis Trabajos</a></li>
-                <li><a href="#QueOfrezco">Servicios</a></li>
-                <li><a href="#Contacto">Contacto</a></li>
-            </ul>
-        </div>
+            <div class="carousel-container hero-carousel" aria-label="Carrusel destacado">
+                <button class="prev" type="button" aria-label="Anterior">❮</button>
 
-        <hr>
-
-        <div id="SobreMi">
-            <h2>Quién soy</h2>
-            <p>
-                Mi nombre es Alcides, soy cucuteño, nacido en el corazón de Norte de Santander, Colombia. Desde pequeño descubrí mi pasión por el dibujo y la pintura. He dedicado mi vida al arte, explorando técnicas como el acrílico sobre lienzo, el carboncillo y el óleo. 
-                Cada obra que realizo es una búsqueda por expresar emociones, capturar momentos y reflejar el alma humana a través del color, la forma y la luz.
-            </p>
-            <img src="imagenes/fotoPerfil.jpg" alt="Foto de Perfil">
-        </div>
-
-        <hr>
-
-        <div id="QueOfrezco">
-            <h2>Qué Ofrezco</h2>
-            <ul>
-                <li>Retratos personalizados (realistas, estilizados o conceptuales)</li>
-                <li>Restauración artística de fotografías antiguas</li>
-                <li>Pintura por encargo (familiares, mascotas, paisajes, homenajes)</li>
-                <li>Asesorías artísticas para nuevos pintores y coleccionistas</li>
-            </ul>
-
-            <h3>Técnicas que utilizo</h3>
-            <ul>
-                <li>✨ <strong>Acrílico sobre lienzo:</strong> Técnica principal. Permite jugar con capas, texturas y contrastes para crear retratos vibrantes y llenos de vida.</li>
-                <li>✍️ <strong>Carboncillo:</strong> Ideal para retratos expresivos en blanco y negro, donde la sombra y la luz construyen atmósferas íntimas.</li>
-                <li>🎨 <strong>Óleo:</strong> Utilizado para lograr profundidad visual y acabados intensos y atemporales.</li>
-                <li>🖼️ <strong>Restauración artística:</strong> Transformo fotografías antiguas en piezas renovadas, cargadas de emoción y detalle.</li>
-            </ul>
-        </div>
-
-        <hr>
-
-        <div id="misTrabajos">
-            <h2>Mis Trabajos</h2>
-            <div class="carousel-container">
-                <button class="prev" onclick="moverCarrusel(-1)">❮</button>
-
-                <div class="carousel">
-                    <img src="imagenes/retrato4.jpg" alt="Retrato 1">
-                    <img src="imagenes/retrato2.jpg" alt="Retrato 2">
-                    <img src="imagenes/retrato3.jpg" alt="Retrato 3">
-                    <img src="imagenes/imagen1.jpg" alt="Imagen 1">
-                    <img src="imagenes/Imagen2.jpg" alt="Imagen 2">
-                    <img src="imagenes/Imagen3.jpg" alt="Imagen 3">
+                <div class="carousel" aria-live="polite">
+                    <img src="imagenes/Principal.jpg" alt="Obra destacada 1" loading="eager" />
+                    <img src="imagenes/retrato4.jpg" alt="Obra destacada 2" loading="lazy" />
+                    <img src="imagenes/retrato2.jpg" alt="Obra destacada 3" loading="lazy" />
+                    <img src="imagenes/retrato2.jpg" alt="Obra destacada 3" loading="lazy" />
                 </div>
 
-                <button class="next" onclick="moverCarrusel(1)">❯</button>
+                <button class="next" type="button" aria-label="Siguiente">❯</button>
             </div>
-        </div>
 
-        <hr>
+            <nav aria-label="Navegación principal">
+                <ul>
+                    <li><a href="#sobre-mi">Sobre mí</a></li>
+                    <li><a href="#mis-trabajos">Mis trabajos</a></li>
+                    <li><a href="#que-ofrezco">Servicios</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+            </nav>
+        </header>
 
-        <div id="Contacto">
+        <hr />
+
+        <section id="sobre-mi" class="reveal reveal--slow">
+            <h2>Quién soy</h2>
+
+            <p class="bio-lead">“Pinto rostros con intención: luz, carácter y memoria.”</p>
+
+            <p>
+                Mi nombre es Alcides, soy cucuteño, nacido en el corazón de Norte de Santander, Colombia.
+                Desde temprana edad descubrí mi pasión por el arte y por la figura humana. Mi especialidad es el
+                retrato:
+                busco capturar la esencia de la persona retratada, más allá del parecido físico.
+                Trabajo con técnicas tradicionales y un enfoque cuidadoso en volumen, expresión y atmósfera.
+                Pinto historias, emociones y silencios: la memoria viva del rostro humano.
+            </p>
+
+            <div class="signature">— Alcides · Pintor y retratista</div>
+
+            <img src="imagenes/fotoPerfil.jpg" alt="Foto de perfil de Alcides" />
+        </section>
+
+        <hr />
+
+        <section id="que-ofrezco" class="reveal reveal--slow">
+            <h2>Qué ofrezco</h2>
+
+            <div class="services-grid" aria-label="Servicios">
+                <div class="service-item reveal reveal--fast">
+                    <h4>Retratos personalizados</h4>
+                    <p>Realistas, estilizados o conceptuales, cuidando la expresión y la atmósfera.</p>
+                </div>
+
+                <div class="service-item reveal reveal--fast">
+                    <h4>Restauración artística</h4>
+                    <p>Fotografías antiguas convertidas en una pieza con vida y presencia visual.</p>
+                </div>
+
+                <div class="service-item reveal reveal--fast">
+                    <h4>Pintura por encargo</h4>
+                    <p>Familiares, mascotas, paisajes y homenajes. Ideal para regalos o recuerdos.</p>
+                </div>
+
+                <div class="service-item reveal reveal--fast">
+                    <h4>Asesorías artísticas</h4>
+                    <p>Orientación práctica para mejorar técnica, composición y presentación del trabajo.</p>
+                </div>
+            </div>
+
+            <h3>Técnicas que utilizo</h3>
+
+            <div class="tech-list" aria-label="Técnicas">
+                <div class="tech-item">
+                    <strong>Acrílico sobre lienzo</strong>
+                    <span>Capas, textura y contraste para retratos vibrantes y nítidos.</span>
+                </div>
+
+                <div class="tech-item">
+                    <strong>Carboncillo</strong>
+                    <span>Blanco y negro expresivo: sombra, luz y carácter.</span>
+                </div>
+
+                <div class="tech-item">
+                    <strong>Óleo</strong>
+                    <span>Profundidad cromática y un acabado clásico, de gran presencia.</span>
+                </div>
+
+                <div class="tech-item">
+                    <strong>Restauración artística</strong>
+                    <span>Reinterpreto fotografías antiguas con criterio estético y emocional.</span>
+                </div>
+            </div>
+        </section>
+
+        <hr />
+
+        <section id="mis-trabajos" class="reveal reveal--slow">
+            <h2>Mis trabajos</h2>
+
+            <div class="gallery-grid">
+                <button class="art-card reveal reveal--fast" type="button" data-title="Retrato — Encargo familiar"
+                    data-technique="Acrílico sobre lienzo" data-year="2025" data-size="40 × 50 cm"
+                    data-description="Retrato por encargo con enfoque en luz y volumen. Paleta cálida y fondo neutro para destacar el gesto."
+                    data-image="imagenes/retrato4.jpg">
+                    <img src="imagenes/retrato4.jpg" alt="Retrato — Encargo familiar" loading="lazy">
+                    <div class="art-meta">
+                        <div class="art-title">Retrato — Encargo familiar</div>
+                        <div class="art-sub">Acrílico · 40×50</div>
+                    </div>
+                </button>
+
+                <button class="art-card reveal reveal--fast" type="button" data-title="Retrato — Carboncillo" data-technique="Carboncillo"
+                    data-year="2024" data-size="30 × 40 cm"
+                    data-description="Estudio en blanco y negro con énfasis en contraste y textura del trazo."
+                    data-image="imagenes/retrato2.jpg">
+                    <img src="imagenes/retrato2.jpg" alt="Retrato — Carboncillo" loading="lazy">
+                    <div class="art-meta">
+                        <div class="art-title">Retrato — Carboncillo</div>
+                        <div class="art-sub">Carboncillo · 30×40</div>
+                    </div>
+                </button>
+
+                <button class="art-card reveal reveal--fast" type="button" data-title="Título de la obra" data-technique="Técnica"
+                    data-year="Año" data-size="Medidas"
+                    data-description="Descripción breve de la obra. Puedes explicar intención, técnica o historia."
+                    data-image="imagenes/placeholder1.jpg">
+
+                    <img src="imagenes/placeholder1.jpg" alt="Obra en proceso" loading="lazy">
+
+                    <div class="art-meta">
+                        <div class="art-title">Título de la obra</div>
+                        <div class="art-sub">Técnica · Medidas</div>
+                    </div>
+                </button>
+
+                <button class="art-card reveal reveal--fast" type="button" data-title="Título de la obra" data-technique="Técnica"
+                    data-year="Año" data-size="Medidas"
+                    data-description="Descripción breve de la obra. Enfoque en color, luz o expresión."
+                    data-image="imagenes/placeholder2.jpg">
+
+                    <img src="imagenes/placeholder2.jpg" alt="Obra artística" loading="lazy">
+
+                    <div class="art-meta">
+                        <div class="art-title">Título de la obra</div>
+                        <div class="art-sub">Técnica · Medidas</div>
+                    </div>
+                </button>
+
+                <button class="art-card reveal reveal--fast" type="button" data-title="Título de la obra" data-technique="Técnica"
+                    data-year="Año" data-size="Medidas"
+                    data-description="Descripción breve de la obra. Contexto del encargo o proceso creativo."
+                    data-image="imagenes/placeholder3.jpg">
+
+                    <img src="imagenes/placeholder3.jpg" alt="Retrato artístico" loading="lazy">
+
+                    <div class="art-meta">
+                        <div class="art-title">Título de la obra</div>
+                        <div class="art-sub">Técnica · Medidas</div>
+                    </div>
+                </button>
+
+                <button class="art-card reveal reveal--fast" type="button" data-title="Título de la obra" data-technique="Técnica"
+                    data-year="Año" data-size="Medidas"
+                    data-description="Descripción breve de la obra. Detalle especial o significado personal."
+                    data-image="imagenes/placeholder4.jpg">
+
+                    <img src="imagenes/placeholder4.jpg" alt="Pintura artística" loading="lazy">
+
+                    <div class="art-meta">
+                        <div class="art-title">Título de la obra</div>
+                        <div class="art-sub">Técnica · Medidas</div>
+                    </div>
+                </button>
+
+
+
+                <!-- Repite para más obras -->
+            </div>
+        </section>
+
+        <hr />
+
+        <section id="contacto" class="reveal reveal--slow">
             <h2>Contáctame</h2>
-            <ul>
-                <li>Whatsapp: +57 317 7046601</li>
-                <li>Email: ayy020252s@gmail.com</li>
-                <li><a href="https://www.youtube.com/@PINTAMAS" target="_blank">Mi Youtube</a></li>
-                <li><a href="https://www.instagram.com/alcides88230?igsh=MXFocjZzN3RrbXBp" target="_blank">Mi Instagram </a></li>
-                <li><a href="https://www.facebook.com/share/14x4K8A78c/" target="_blank">Mi FaceBook</a></li>
-                <li><a href="https://www.tiktok.com/@alcidesperez05?_t=ZS-8wgxvWiOGCW&_r=1" target="_blank">Mi TikTok</a></li>
-            </ul>
-        </div>
 
+            <ul>
+                <li>WhatsApp: <a href="https://wa.me/573177046601" target="_blank" rel="noopener">+57 317 704 6601</a>
+                </li>
+                <li>Email: <a href="mailto:ayy020252s@gmail.com">ayy020252s@gmail.com</a></li>
+            </ul>
+        </section>
     </main>
 
-    <script>
-        let index = 0;
+    <!-- Scripts (sin duplicados) -->
+    <script src="js/carousel.js" defer></script>
+    <script src="js/modal.js" defer></script>
+    <script src="js/reveal.js" defer></script>
 
-        function moverCarrusel(direccion) {
-            const carrusel = document.querySelector('.carousel');
-            const totalImagenes = carrusel.children.length;
-            index += direccion;
 
-            if (index < 0) index = totalImagenes - 1;
-            if (index >= totalImagenes) index = 0;
+    <!-- Modal -->
+    <div class="art-modal" id="artModal" aria-hidden="true">
+        <div class="art-modal__backdrop" data-close></div>
 
-            carrusel.style.transform = `translateX(-${index * 100}%)`;
-        }
-    </script>
+        <div class="art-modal__dialog" role="dialog" aria-modal="true" aria-label="Detalle de obra">
+            <button class="art-modal__close" type="button" aria-label="Cerrar" data-close>✕</button>
+
+            <div class="art-modal__content">
+                <div class="art-modal__image-wrap">
+                    <img id="modalImg" alt="" />
+                </div>
+
+                <div class="art-modal__info">
+                    <h3 id="modalTitle"></h3>
+
+                    <ul class="art-modal__facts">
+                        <li><strong>Técnica:</strong> <span id="modalTechnique"></span></li>
+                        <li><strong>Año:</strong> <span id="modalYear"></span></li>
+                        <li><strong>Medidas:</strong> <span id="modalSize"></span></li>
+                    </ul>
+
+                    <p id="modalDesc" class="art-modal__desc"></p>
+
+                    <div class="art-modal__actions">
+                        <a id="modalWhatsApp" class="btn" target="_blank" rel="noopener">Cotizar por WhatsApp</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
 </body>
+
 </html>

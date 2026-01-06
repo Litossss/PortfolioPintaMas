@@ -1,0 +1,754 @@
+/* =========================
+   PINTAMAS - GALERÍA / PARED (CSS OPTIMIZADO)
+   ========================= */
+
+/* Reset */
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+:root{
+  --wall-1:#0f2027;
+  --wall-2:#203a43;
+  --wall-3:#2c5364;
+
+  --text: rgba(255,255,255,.92);
+  --muted: rgba(255,255,255,.70);
+
+  --frame:#c9a44c;
+  --shadow-strong: 0 30px 70px rgba(0,0,0,.60);
+  --shadow-soft: 0 12px 30px rgba(0,0,0,.45);
+
+  --pill-bg: rgba(255,255,255,.92);
+  --pill-text:#121212;
+}
+
+body{
+  margin:0;
+  font-family:'Montserrat', sans-serif;
+  color:var(--text);
+  min-height:100vh;
+  background:
+    radial-gradient(circle at 50% 18%, rgba(255,255,255,.14), transparent 52%),
+    radial-gradient(circle at 20% 85%, rgba(255,255,255,.06), transparent 55%),
+    linear-gradient(135deg, var(--wall-1), var(--wall-2), var(--wall-3));
+}
+
+main{
+  width:min(1100px, 92vw);
+  margin:0 auto;
+  padding:40px 0 80px;
+}
+
+hr{
+  margin:70px 0;
+  border:0;
+  border-top:1px solid rgba(255,255,255,.12);
+}
+
+h1,h2,h3{
+  margin:0 0 14px;
+  letter-spacing:.2px;
+}
+h1{ font-size:clamp(1.8rem, 2.6vw, 2.6rem); font-weight:700; }
+h2{ font-size:clamp(1.4rem, 2.0vw, 2.0rem); font-weight:700; }
+h3{ font-size:clamp(1.15rem, 1.6vw, 1.55rem); font-weight:700; margin-top:26px; }
+
+p{ margin:0 0 16px; line-height:1.85; }
+li{ line-height:1.7; }
+
+/* =========================
+   CUADROS (secciones con marco)
+   Nota: tu HTML usa <div id="...">, por eso listamos IDs.
+   ========================= */
+
+#portada,
+#SobreMi,
+#Que\ Ofrezco,
+#misTrabajos,
+#Contacto,
+#sobre-mi,
+#que-ofrezco,
+#mis-trabajos,
+#contacto,
+section{
+  position:relative;
+  background: linear-gradient(180deg, rgba(15,15,15,.72), rgba(8,8,8,.64));
+  border:14px solid var(--frame);
+  border-radius:6px;
+  padding:34px;
+  margin:70px auto;
+  box-shadow:
+    inset 0 0 0 2px rgba(255,255,255,.08),
+    inset 0 0 0 6px rgba(0,0,0,.35),
+    var(--shadow-strong);
+}
+
+/* Volumen del marco */
+#portada::after,
+#SobreMi::after,
+#Que\ Ofrezco::after,
+#misTrabajos::after,
+#Contacto::after,
+#sobre-mi::after,
+#que-ofrezco::after,
+#mis-trabajos::after,
+#contacto::after,
+section::after{
+  content:"";
+  position:absolute;
+  inset:-14px;
+  border-radius:8px;
+  box-shadow:0 18px 40px rgba(0,0,0,.45);
+  pointer-events:none;
+}
+
+/* Halo (luz detrás del cuadro) */
+#portada::before,
+#SobreMi::before,
+#Que\ Ofrezco::before,
+#misTrabajos::before,
+#Contacto::before,
+#sobre-mi::before,
+#que-ofrezco::before,
+#mis-trabajos::before,
+#contacto::before,
+section::before{
+  content:"";
+  position:absolute;
+  inset:-80px -40px;
+  background: radial-gradient(circle at 50% 35%, rgba(255,255,255,.12), transparent 60%);
+  filter: blur(2px);
+  z-index:-1;
+  pointer-events:none;
+}
+
+/* =========================
+   PORTADA
+   ========================= */
+
+#portada{ text-align:center; }
+
+#portada img{
+  display:block;
+  width:min(720px, 100%);
+  margin:18px auto 28px;
+  border-radius:6px;
+  border:10px solid rgba(255,255,255,.10);
+  box-shadow:var(--shadow-soft);
+}
+
+#portada ul{
+  list-style:none;
+  padding:0;
+  margin:0;
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:14px;
+}
+#portada ul li{ margin:0; padding:0; }
+
+#portada a{
+  display:inline-block;
+  padding:10px 18px;
+  border-radius:999px;
+  background:var(--pill-bg);
+  color:var(--pill-text);
+  text-decoration:none;
+  font-weight:600;
+  font-size:.95rem;
+  box-shadow:0 10px 22px rgba(0,0,0,.28);
+  transition: transform .15s ease, filter .15s ease;
+}
+#portada a:hover{ transform: translateY(-1px); filter:brightness(1.02); }
+#portada a:active{ transform: translateY(0); }
+
+/* =========================
+   SOBRE MÍ (FIX GRID AREAS)
+   ========================= */
+
+#SobreMi,
+#sobre-mi{
+  display:grid;
+  grid-template-columns: 1.55fr .75fr;
+  grid-template-areas:
+    "title title"
+    "text  photo";
+  gap:22px 32px;
+  align-items:start;
+}
+
+#SobreMi h2, #sobre-mi h2{ grid-area:title; margin-bottom:6px; }
+
+#SobreMi p, #sobre-mi p{
+  grid-area:text;
+  margin:0;
+  max-width:68ch;
+  color: rgba(255,255,255,.90);
+}
+
+#SobreMi img, #sobre-mi img{
+  grid-area:photo;
+  width:100%;
+  max-width:340px;
+  justify-self:end;
+  margin-top:6px;
+  border-radius:8px;
+  border:10px solid rgba(255,255,255,.10);
+  box-shadow:0 18px 45px rgba(0,0,0,.55);
+}
+
+/* =========================
+   QUÉ OFREZCO
+   ========================= */
+#Que\ Ofrezco ul,
+#que-ofrezco ul { list-style:square; padding-left:20px; }
+
+/* =========================
+   CARRUSEL (base)
+   ========================= */
+
+.carousel-container{
+  position:relative;
+  width:min(900px, 100%);
+  margin:26px auto 0;
+  overflow:hidden;
+  border-radius:10px;
+}
+
+.carousel{
+  display:flex;
+  transition: transform .6s ease;
+  will-change: transform;
+}
+
+.carousel img{
+  width:100%;
+  min-width:100%;
+  display:block;
+  border-radius:10px;
+  border:12px solid rgba(255,255,255,.10);
+  box-shadow:0 18px 50px rgba(0,0,0,.60);
+  object-fit:cover; /* base */
+}
+
+button.prev,
+button.next{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  width:44px;
+  height:44px;
+  border-radius:999px;
+  border:1px solid rgba(255,255,255,.22);
+  background:rgba(0,0,0,.45);
+  color:rgba(255,255,255,.92);
+  font-size:1.5rem;
+  cursor:pointer;
+  z-index:2;
+  box-shadow:0 12px 26px rgba(0,0,0,.35);
+  transition: transform .12s ease, background .12s ease, filter .12s ease;
+}
+button.prev:hover,
+button.next:hover{ background:rgba(0,0,0,.60); filter:brightness(1.05); }
+button.prev:active,
+button.next:active{ transform:translateY(-50%) scale(.98); }
+button.prev{ left:14px; }
+button.next{ right:14px; }
+
+/* =========================
+   HERO (Carrusel 16:9)
+   ========================= */
+
+.hero-carousel{
+  width:min(960px, 100%);
+  margin:18px auto 24px;
+}
+
+/* Si el hero usa .carousel-container dentro */
+.hero-carousel .carousel-container{
+  width:100%;
+  aspect-ratio: 16 / 9;
+}
+
+/* Si el hero es la misma caja .carousel-container con clase hero-carousel */
+.hero-carousel.carousel-container{
+  width:100%;
+  aspect-ratio: 16 / 9;
+}
+
+.hero-carousel .carousel{ height:100%; }
+
+.hero-carousel .carousel img{
+  height:100%;
+  object-fit:contain;       /* obra completa */
+  background:#0b0b0b;       /* pared/ambiente */
+}
+
+/* =========================
+   GRID DE TARJETAS (Mis trabajos)
+   ========================= */
+
+.gallery-grid{
+  margin-top:24px;
+  display:grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap:18px;
+}
+
+.art-card{
+  appearance:none;
+  border:0;
+  padding:0;
+  background:transparent;
+  cursor:pointer;
+  text-align:left;
+}
+
+.art-card img{
+  width:100%;
+  height:240px;
+  object-fit:cover;
+  display:block;
+  border-radius:10px;
+  border:10px solid rgba(255,255,255,.10);
+  box-shadow:0 18px 45px rgba(0,0,0,.55);
+  transition: transform .18s ease, filter .18s ease;
+}
+
+.art-card:hover img{ transform:translateY(-2px); filter:brightness(1.02); }
+
+.art-meta{
+  margin-top:10px;
+  padding:10px 12px;
+  border-radius:10px;
+  background:rgba(0,0,0,.30);
+  border:1px solid rgba(255,255,255,.10);
+}
+.art-title{ font-weight:700; color:rgba(255,255,255,.92); font-size:.98rem; }
+.art-sub{ margin-top:3px; font-size:.88rem; color:rgba(255,255,255,.70); }
+
+/* =========================
+   MODAL (Zoom + ficha)
+   ========================= */
+
+.art-modal{
+  position:fixed;
+  inset:0;
+  display:none;
+  z-index:999;
+}
+.art-modal.is-open{ display:block; }
+
+.art-modal__backdrop{
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,0,.65);
+  backdrop-filter: blur(3px);
+}
+
+.art-modal__dialog{
+  position:relative;
+  width:min(1000px, 92vw);
+  margin:6vh auto;
+  border-radius:14px;
+  border:1px solid rgba(255,255,255,.14);
+  background:rgba(10,10,10,.92);
+  box-shadow:0 30px 80px rgba(0,0,0,.75);
+  overflow:hidden;
+}
+
+.art-modal__close{
+  position:absolute;
+  top:12px;
+  right:12px;
+  width:40px;
+  height:40px;
+  border-radius:999px;
+  border:1px solid rgba(255,255,255,.18);
+  background:rgba(0,0,0,.35);
+  color:rgba(255,255,255,.92);
+  cursor:pointer;
+  z-index:2;
+}
+
+.art-modal__content{
+  display:grid;
+  grid-template-columns: 1.25fr .75fr;
+}
+
+.art-modal__image-wrap{
+  background:rgba(0,0,0,.35);
+  padding:18px;
+}
+
+.art-modal__image-wrap img{
+  width:100%;
+  height:70vh;
+  max-height:640px;
+  object-fit:contain;
+  display:block;
+  border-radius:10px;
+  border:10px solid rgba(255,255,255,.08);
+}
+
+.art-modal__info{ padding:18px 18px 20px; }
+.art-modal__facts{ list-style:none; padding:0; margin:0 0 12px; color:rgba(255,255,255,.82); }
+.art-modal__facts li{ margin:6px 0; }
+.art-modal__desc{ color:rgba(255,255,255,.78); line-height:1.75; margin:0 0 16px; }
+
+.btn{
+  display:inline-block;
+  padding:10px 14px;
+  border-radius:12px;
+  background:rgba(255,255,255,.92);
+  color:#111;
+  text-decoration:none;
+  font-weight:700;
+  box-shadow:0 12px 26px rgba(0,0,0,.35);
+}
+
+/* =========================
+   CONTACTO
+   ========================= */
+#Contacto a, #contacto a{
+  color:rgba(255,255,255,.92);
+  text-decoration:underline;
+  text-underline-offset:4px;
+}
+#Contacto a:hover, #contacto a:hover{ color:#fff; }
+
+/* =========================
+   RESPONSIVE
+   ========================= */
+
+@media (max-width: 1000px){
+  .gallery-grid{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .art-card img{ height:230px; }
+}
+
+@media (max-width: 900px){
+  #portada,
+  #SobreMi,
+  #Que\ Ofrezco,
+  #misTrabajos,
+  #Contacto,
+  #sobre-mi,
+  #que-ofrezco,
+  #mis-trabajos,
+  #contacto,
+  section{
+    padding:26px;
+    margin:55px auto;
+    border-width:12px;
+  }
+
+  #SobreMi, #sobre-mi{
+    grid-template-columns:1fr;
+    grid-template-areas:
+      "title"
+      "photo"
+      "text";
+  }
+
+  #SobreMi img, #sobre-mi img{
+    justify-self:center;
+    max-width:420px;
+  }
+
+  .art-modal__content{ grid-template-columns:1fr; }
+  .art-modal__image-wrap img{ height:52vh; }
+
+  button.prev, button.next{ width:42px; height:42px; }
+}
+
+@media (max-width: 560px){
+  .gallery-grid{ grid-template-columns: 1fr; }
+  .art-card img{ height:240px; }
+}
+
+@media (max-width: 520px){
+  main{ width:92vw; padding:26px 0 60px; }
+
+  #portada,
+  #SobreMi,
+  #Que\ Ofrezco,
+  #misTrabajos,
+  #Contacto,
+  #sobre-mi,
+  #que-ofrezco,
+  #mis-trabajos,
+  #contacto,
+  section{
+    padding:20px;
+    border-width:10px;
+  }
+
+  #portada a{ padding:10px 14px; font-size:.92rem; }
+  button.prev{ left:10px; }
+  button.next{ right:10px; }
+}
+/* =========================
+   CURADURÍA DE CONTENIDO
+   (bio + servicios + técnicas)
+   ========================= */
+
+/* Frase tipo cita (Quién soy) */
+.bio-lead{
+  margin: 6px 0 14px;
+  font-size: 1.12rem;
+  font-style: italic;
+  line-height: 1.6;
+  color: rgba(255,255,255,0.86);
+  position: relative;
+  padding-left: 14px;
+  border-left: 3px solid rgba(201,164,76,0.75); /* mismo dorado del marco */
+}
+
+/* Firma */
+.signature{
+  margin-top: 16px;
+  font-size: 0.95rem;
+  color: rgba(255,255,255,0.60);
+  font-style: italic;
+}
+
+/* =========================
+   Servicios como “placas”
+   ========================= */
+
+.services-grid{
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 18px;
+}
+
+.service-item{
+  padding: 14px 16px;
+  border-radius: 12px;
+  background: rgba(0,0,0,0.35);
+  border: 1px solid rgba(255,255,255,0.12);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.30);
+}
+
+.service-item h4{
+  margin: 0 0 6px;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: rgba(255,255,255,0.92);
+}
+
+.service-item p{
+  margin: 0;
+  color: rgba(255,255,255,0.76);
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+
+/* =========================
+   Técnicas como “cartelas”
+   ========================= */
+
+.tech-list{
+  margin-top: 14px;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.10);
+  background: rgba(0,0,0,0.22);
+}
+
+.tech-item{
+  padding: 14px 16px;
+  border-top: 1px solid rgba(255,255,255,0.10);
+}
+
+.tech-item:first-child{
+  border-top: 0;
+}
+
+.tech-item strong{
+  display: block;
+  margin-bottom: 6px;
+  font-size: 1rem;
+  color: rgba(255,255,255,0.92);
+}
+
+.tech-item span{
+  display: block;
+  color: rgba(255,255,255,0.74);
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+
+/* =========================
+   Ajustes finos en listas
+   (evitar look “documento”)
+   ========================= */
+
+/* Solo para la sección contacto: mantener simple */
+#contacto ul{
+  margin-top: 12px;
+  padding-left: 18px;
+}
+
+/* En secciones generales, suaviza viñetas */
+section ul{
+  color: rgba(255,255,255,0.86);
+}
+
+/* =========================
+   Responsive
+   ========================= */
+
+@media (max-width: 900px){
+  .services-grid{
+    grid-template-columns: 1fr;
+  }
+
+  .bio-lead{
+    font-size: 1.05rem;
+  }
+}
+/* =========================
+   FIX "SOBRE MÍ" (evita solapes)
+   ========================= */
+
+#SobreMi,
+#sobre-mi {
+  display: grid;
+  grid-template-columns: 1.55fr 0.75fr;
+  grid-template-areas:
+    "title title"
+    "lead  photo"
+    "text  photo"
+    "sign  photo";
+  gap: 18px 32px;
+  align-items: start;
+}
+
+/* Título */
+#SobreMi h2,
+#sobre-mi h2 {
+  grid-area: title;
+  margin-bottom: 6px;
+}
+
+/* Frase tipo cita */
+#SobreMi .bio-lead,
+#sobre-mi .bio-lead {
+  grid-area: lead;
+  margin: 0;
+}
+
+/* Párrafo normal (solo el que NO es bio-lead) */
+#SobreMi p:not(.bio-lead),
+#sobre-mi p:not(.bio-lead) {
+  grid-area: text;
+  margin: 0;
+  max-width: 68ch;
+  line-height: 1.85;
+  color: rgba(255,255,255,0.90);
+}
+
+/* Firma */
+#SobreMi .signature,
+#sobre-mi .signature {
+  grid-area: sign;
+  margin-top: 8px;
+}
+
+/* Foto */
+#SobreMi img,
+#sobre-mi img {
+  grid-area: photo;
+  width: 100%;
+  max-width: 340px;
+  justify-self: end;
+  margin-top: 6px;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  #SobreMi,
+  #sobre-mi {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "title"
+      "photo"
+      "lead"
+      "text"
+      "sign";
+  }
+
+  #SobreMi img,
+  #sobre-mi img {
+    justify-self: center;
+    max-width: 420px;
+  }
+}
+/* =========================
+   Animación al aparecer (Galería)
+   ========================= */
+
+.art-card {
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 600ms ease, transform 600ms ease;
+  will-change: opacity, transform;
+}
+
+/* Estado visible */
+.art-card.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Respeta accesibilidad: si el usuario prefiere menos movimiento */
+@media (prefers-reduced-motion: reduce) {
+  .art-card {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+/* =========================
+   REVEAL GLOBAL (GALERÍA)
+   ========================= */
+
+/* Estado inicial (oculto) */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 800ms ease,
+    transform 800ms ease;
+  will-change: opacity, transform;
+}
+
+/* Visible */
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Variantes */
+.reveal--fast {
+  transition-duration: 500ms;
+}
+
+.reveal--slow {
+  transition-duration: 1000ms;
+}
+
+/* Accesibilidad */
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
